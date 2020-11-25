@@ -1,12 +1,41 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>Auto-resizing sidenav</p>
+    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+
+    <h3>Top Heroes</h3>
+    <div class="grid grid-pad">
+      <a *ngFor="let hero of heroes" class="col-1-4"
+        routerLink="/detail/{{hero.id}}">
+        <div class="module hero">
+          <mat-card>{{hero.name}}</mat-card>
+        </div>
+      </a>
+    </div>
+  
+  </div>
+</mat-drawer-container>
+
+
+
 <h3>Top Heroes</h3>
 <div class="grid grid-pad">
   <a *ngFor="let hero of heroes" class="col-1-4"
     routerLink="/detail/{{hero.id}}">
     <div class="module hero">
-      <h3>{{hero.id}}</h3>
-      <h4>{{hero.name}}</h4>
+      <mat-card>{{hero.name}}</mat-card>
     </div>
   </a>
 </div>
 
 <app-hero-search></app-hero-search>
+

@@ -11,6 +11,7 @@ import { HeroService } from '../hero.service';
 export class DashboardComponent implements OnInit {
 
   heroes: Hero[] = [];
+  showFiller = false;
 
   constructor(private heroService: HeroService) {
   }
